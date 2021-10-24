@@ -1,22 +1,28 @@
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import getResult from "./functions/resultApiData";
+import getResultUserData from "./functions/resultApiUserData";
+import getResultWeatherData from "./functions/resultApiWeatherData";
 
 function App() {
   const data= useSelector(state=>state.repos)
   const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getResult())
+        dispatch(getResultUserData())
     }, [dispatch])
+
+
+    // useEffect(() => {
+    //     dispatch(getResultWeatherData("Polohy"))
+    // }, [dispatch])
 
   return (
 
       <div>
-          {proverka(data.items.picture , "large")}
+          {proverka(data.itemsUser.picture , "large")}
           <br/>
-          {proverka(data.items.name , "title")+" "+proverka(data.items.name , "first")+" "+proverka(data.items.name , "last")}
+          {proverka(data.itemsUser.name , "title")+" "+proverka(data.items.name , "first")+" "+proverka(data.items.name , "last")}
       </div>
 
       );

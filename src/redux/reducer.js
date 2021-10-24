@@ -1,25 +1,24 @@
-import {ADD_DATA, INIT, RESET} from "./actionType";
+import {ADD_DATA_USER, ADD_DATA_WEATHER, INIT, RESET} from "./actionType";
 
 const defaultState = {
 
     error: null,
     isLoaded: false,
-    items: [],
+    itemsUser: [],
+    itemsWeather: [],
 
 }
 
 export default function reducer(state = defaultState, action) {
+    alert(action.type)
     switch(action.type) {
 
-        case INIT:
-            return { value: action.value_1 };
 
+        case ADD_DATA_USER:
+            return { itemsUser: action.data.results[0] };
 
-        case ADD_DATA:
-            return { items: action.data.results[0] };
-
-        case RESET:
-            return { items: null };
+        case ADD_DATA_WEATHER:
+            return { itemsWeather: action.data.results[0] };
 
         default:
             return state;
