@@ -7,6 +7,7 @@ import store from "./redux/mainStore";
 
 ReactDOM.render(
   <Provider store={store}>
+      {console.log("Innit")}
     <App />
   </Provider>,
   document.getElementById('root')

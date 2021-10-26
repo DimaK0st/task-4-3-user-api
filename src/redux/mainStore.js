@@ -8,6 +8,6 @@ const rootReducer = combineReducers({
     repos: reducer,
 
 })
-
+alert("Создаём редьютер")
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 export default store
